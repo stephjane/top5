@@ -3,6 +3,14 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
   config.cache_classes = true
+  config.paperclip_defaults = {
+ :storage => :s3,
+ :s3_credentials => {
+   :bucket => ENV['s3_bucket'],
+   :access_key_id => ENV['aws_access_key'],
+   :secret_access_key => ENV['aws_secret_access_key']
+ }
+}
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
