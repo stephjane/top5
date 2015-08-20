@@ -4,6 +4,11 @@
   <strong>Name:</strong>
   <%= @artist.name %>
 </p>
+<% if @artist.avatar_file_name !=nil%>
+	<p>
+	<%=image_tag @artist.avatar.url(:medium)%>
+	</p>
+<%end%>
 
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
 <%= link_to 'Back', artists_path %>
